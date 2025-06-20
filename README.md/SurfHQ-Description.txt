@@ -1,0 +1,31 @@
+🌊 SurfHQ - Full Stack Surfing Web App
+
+SurfHQ is a full stack web application built for surf enthusiasts to explore, review, and discover 
+ideal surf spots. The project combines a Java Spring Boot backend with a responsive frontend using 
+HTML, CSS, JavaScript, Bootstrap, and Leaflet.js for interactive maps. The app is designed to work 
+with a SQL database to store surf spot data, user posts, and reviews.
+
+✨ Features
+🗺️ Interactive Surf Map – View surf spots on a dynamic Leaflet map with popups showing wave size, difficulty, and descriptions.
+
+📝 User Reviews – Each surf spot displays user-submitted reviews for real-world insight.
+
+🤖 Surf Spot Recommendation Form – Users can enter experience level and wave height preference to receive tailored surf spot suggestions.
+
+💬 Surf Feed – A Reddit-style home page for users to post and view surfing-related content.
+
+🛒 Surf Market - users can post or buy surf equipment 
+
+📱 Responsive Design – Optimized for both desktop and mobile devices.
+
+🧩 Modular Structure – Clean frontend/backend separation, fully prepared for database integration using SQL.
+
+🔧 Technologies Used
+
+Backend: Java, Spring Boot
+
+Frontend: HTML, CSS, JavaScript, Bootstrap 5, Leaflet.js
+
+Database: MySQL 
+
+Development Tools: Gradle, VS Code, Postman (API Testing)
