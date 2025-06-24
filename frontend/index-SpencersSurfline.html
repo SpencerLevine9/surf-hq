@@ -11,13 +11,58 @@
   <!-- jQuery UI CSS (Optional if using jQuery UI components) -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
+  <!-- ensures nav bar doesnt overlap -->
+  <style>
+  body {
+    padding-top: 56px; 
+  }
+  .sidebar{
+    z-index: 1;
+    background-color: #f8f9fa;
+    padding-top: 1rem;
+    height: 100vh;
+    border-right: 1px solid #dee2e6;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 200px;
+    overflow-y: auto;
+  }
+  /* Sidebar nav links */
+.sidebar .nav-link {
+  color: #495057;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  transition: background-color 0.2s, color 0.2s;
+  border-radius: 8px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef;
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar .nav-link.active {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Optional icon style (for emojis or icons) */
+.sidebar .nav-link i,
+.sidebar .nav-link span.emoji {
+  margin-right: 8px;
+}
+</style>
+
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- 🔹 Navigation Bar (fixed to top) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SurfHQ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -25,43 +70,60 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="surfspots.html">Surf Spots</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="market.html">Surf Market</a>
-        </li>
+        <li class="nav-item"><a class="nav-link active" href="index-SpencersSurfline.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="surfspots.html">Surf Spots</a></li>
+        <li class="nav-item"><a class="nav-link" href="market.html">Surf Market</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-  <div class="container mt-4">
+<div class="container-fluid">
+  <div class="row">
 
-    <p id="response"></p>
+<!-- 🔹 Sidebar -->
+<div class="sidebar">
+  <ul class="nav flex-column">
+    <li class="nav-item mb-2">
+      <a class="nav-link active" href="#"><span class="emoji">🏄</span>Explore</a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#"><span class="emoji">🔔</span>Notifications</a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#"><span class="emoji">📬</span>Inbox</a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#"><span class="emoji">👤</span>Profile</a>
+    </li>
+    <li class="nav-item mb-2">
+      <a class="nav-link" href="#"><span class="emoji">🌊</span>Communities</a>
+    </li>
+  </ul>
+</div>
 
-    <div id="app"></div>
-    
-    <div id="home-feed">
-      <!-- Post Input-->
-       <div class="mb-4">
+
+    <!-- Main Content Area -->
+    <div class="col-md-10 offset-md-2 mt-4">
+      <p id="response"></p>
+
+      <div id="home-feed">
+        <!-- Post Input -->
+        <div class="mb-4">
           <h4>What the Surf is Happening</h4>
           <textarea class="form-control mb-2" id="postText" rows="3" placeholder="What's up in the waves?" style="resize: none;"></textarea>
           <button class="btn btn-primary" onclick="submitPost()">Post</button>
-       </div>
+        </div>
 
-      <!-- Posts List -->
-       <div id="postList">
-
-      <!-- Posts will appear here-->
-
-       </div>
+        <!-- Posts List -->
+        <div id="postList"></div>
+      </div>
     </div>
 
   </div>
+</div>
+
+
 
 
   <!-- jQuery -->
