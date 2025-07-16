@@ -89,7 +89,7 @@
         
 
         <!-- Product Card Example -->
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4 product-wrapper">
             <div class="card product-card" data-type="Surfboard" data-price="500">
             <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Surfboard">
             <div class="card-body">
@@ -100,7 +100,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4 product-wrapper">
             <div class="card product-card" data-type="Wetsuit" data-price="300">
             <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Wetsuit">
             <div class="card-body">
@@ -111,7 +111,8 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-4">
+
+        <div class="col-md-4 mb-4 product-wrapper">
             <div class="card product-card" data-type="Leash" data-price="25">
             <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Leash">
             <div class="card-body">
@@ -122,7 +123,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4 product-wrapper">
             <div class="card product-card" data-type="Wax" data-price="3">
             <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Wetsuit">
             <div class="card-body">
@@ -148,27 +149,25 @@
     price: 'Any'
   };
 
-  function applyFilters() {
-    const cards = document.querySelectorAll('.product-card');
+/*function applyFilters() {
+  const wrappers = document.querySelectorAll('.product-wrapper');
 
-    cards.forEach(card => {
-      const type = card.getAttribute('data-type');
-      const price = parseInt(card.getAttribute('data-price'));
+  wrappers.forEach(wrapper => {
+    const card = wrapper.querySelector('.product-card');
+    const type = card.getAttribute('data-type');
+    const price = parseInt(card.getAttribute('data-price'));
 
-      const matchesType = (filters.type === 'All' || filters.type === type);
-      const matchesPrice = (filters.price === 'Any' || (
-        filters.price === '<50' && price < 50 ||
-        filters.price === '50-200' && price >= 50 && price <= 200 ||
-        filters.price === '>200' && price > 200
-      ));
+    const matchesType = (filters.type === 'All' || filters.type === type);
+    const matchesPrice = (filters.price === 'Any' || (
+      filters.price === '<50' && price < 50 ||
+      filters.price === '50-200' && price >= 50 && price <= 200 ||
+      filters.price === '>200' && price > 200
+    ));
 
-      if (matchesType && matchesPrice) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
+    wrapper.style.display = (matchesType && matchesPrice) ? 'block' : 'none';
+  });
+}
+
 
   document.getElementById('gearType').addEventListener('change', e => {
     filters.type = e.target.value;
@@ -178,8 +177,12 @@
   document.getElementById('priceRange').addEventListener('change', e => {
     filters.price = e.target.value;
     applyFilters();
-  });
+  });*/
+
+  
 </script>
+
+<script src="market.js"></script>
 
 </body>
 </html>
