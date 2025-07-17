@@ -86,53 +86,9 @@
       <h2 class="mb-4">Surf Gear</h2>
       <div class="row">
 
-        
-
-        <!-- Product Card Example -->
-        <div class="col-md-4 mb-4 product-wrapper">
-            <div class="card product-card" data-type="Surfboard" data-price="500">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Surfboard">
-            <div class="card-body">
-              <h5 class="card-title">Channel Islands Surfboard</h5>
-              <p class="card-text">$500 - High performance board for intermeidate surf level.</p>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4 product-wrapper">
-            <div class="card product-card" data-type="Wetsuit" data-price="300">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Wetsuit">
-            <div class="card-body">
-              <h5 class="card-title">Ripcurl Wetsuit</h5>
-              <p class="card-text">$300 - Stay warm with flexible 3-2 wetsuit.</p>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-4 mb-4 product-wrapper">
-            <div class="card product-card" data-type="Leash" data-price="25">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Leash">
-            <div class="card-body">
-              <h5 class="card-title">Ripcurl Leash</h5>
-              <p class="card-text">$25 - Durable and secure leash for short boards.</p>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4 product-wrapper">
-            <div class="card product-card" data-type="Wax" data-price="3">
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Wetsuit">
-            <div class="card-body">
-              <h5 class="card-title">Sex Wax Surf Wax</h5>
-              <p class="card-text">$3- The best for your stick.</p>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
+        <!-- Product Listings Go Here -->
+      <div id="market-listings" class="row"></div>
+       
       </div>
     </div>
 
@@ -148,36 +104,6 @@
     type: 'All',
     price: 'Any'
   };
-
-/*function applyFilters() {
-  const wrappers = document.querySelectorAll('.product-wrapper');
-
-  wrappers.forEach(wrapper => {
-    const card = wrapper.querySelector('.product-card');
-    const type = card.getAttribute('data-type');
-    const price = parseInt(card.getAttribute('data-price'));
-
-    const matchesType = (filters.type === 'All' || filters.type === type);
-    const matchesPrice = (filters.price === 'Any' || (
-      filters.price === '<50' && price < 50 ||
-      filters.price === '50-200' && price >= 50 && price <= 200 ||
-      filters.price === '>200' && price > 200
-    ));
-
-    wrapper.style.display = (matchesType && matchesPrice) ? 'block' : 'none';
-  });
-}
-
-
-  document.getElementById('gearType').addEventListener('change', e => {
-    filters.type = e.target.value;
-    applyFilters();
-  });
-
-  document.getElementById('priceRange').addEventListener('change', e => {
-    filters.price = e.target.value;
-    applyFilters();
-  });*/
 
   
 </script>

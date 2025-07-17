@@ -1,33 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const listingsContainer = document.getElementById('market-listings');
 
-function applyFilters() {
-  const wrappers = document.querySelectorAll('.product-wrapper');
+  const savedProducts = JSON.parse(localStorage.getItem('marketListings')) || [];
 
-  wrappers.forEach(wrapper => {
-    const card = wrapper.querySelector('.product-card');
-    const type = card.getAttribute('data-type');
-    const price = parseInt(card.getAttribute('data-price'));
-
-    const matchesType = (filters.type === 'All' || filters.type === type);
-    const matchesPrice = (filters.price === 'Any' || (
-      filters.price === '<50' && price < 50 ||
-      filters.price === '50-200' && price >= 50 && price <= 200 ||
-      filters.price === '>200' && price > 200
-    ));
-
-    wrapper.style.display = (matchesType && matchesPrice) ? 'block' : 'none';
-  });
-}
-
-
-  document.getElementById('gearType').addEventListener('change', e => {
-    filters.type = e.target.value;
-    applyFilters();
-  });
-
-  document.getElementById('priceRange').addEventListener('change', e => {
-    filters.price = e.target.value;
-    applyFilters();
+  savedProducts.forEach(product => {
+  const card = document.createElement('div');
+  card.className = 'col-md-4 mb-4 product-wrapper';
+  card.innerHTML = `
+    <div class="card product-card" data-type="${product.type}" data-price="${product.price}">
+      <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+      <div class="card-body">
+        <h5 class="card-title">${product.name}</h5>
+        <p class="card-text">$${product.price} - ${product.description}</p>
+        <p class="card-text"><strong>Contact:</strong> ${product.email}</p>
+        <button class="btn btn-primary">Message Seller</button>
+      </div>
+    </div>
+  `;
+  listingsContainer.appendChild(card);
   });
 
 });
