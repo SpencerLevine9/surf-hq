@@ -1,3 +1,6 @@
+// sell.js
+const LISTINGS_KEY = 'marketListings';
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('sell-form');
   const statusMessage = document.getElementById('statusMessage');
@@ -5,21 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const product = {
-      name: document.getElementById('productName').value,
-      description: document.getElementById('description').value,
-      type: document.getElementById('type').value,
+    const listing = {
+      id: Date.now(),
+      title: document.getElementById('productName').value.trim(),
+      description: document.getElementById('description').value.trim(),
+      type: document.getElementById('type').value,        // BOARD/WETSUIT/ACCESSORY/OTHER
+      condition: document.getElementById('condition')?.value || 'Any',
       price: parseFloat(document.getElementById('price').value),
-      email: document.getElementById('email').value,
-      imageUrl: document.getElementById('imageUrl').value
+      email: document.getElementById('email').value.trim(),
+      imageUrl: document.getElementById('imageUrl').value.trim(),
+      createdAt: new Date().toISOString()
     };
 
-    // Load existing listings or initialize new array
-    const listings = JSON.parse(localStorage.getItem('marketListings')) || [];
-    listings.push(product);
-    localStorage.setItem('marketListings', JSON.stringify(listings));
+    const listings = JSON.parse(localStorage.getItem(LISTINGS_KEY)) || [];
+    listings.push(listing);
+    localStorage.setItem(LISTINGS_KEY, JSON.stringify(listings));
 
-    statusMessage.textContent = "Product listed successfully!";
+    statusMessage.textContent = 'Listing posted!';
     form.reset();
   });
 });
